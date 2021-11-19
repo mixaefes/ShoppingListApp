@@ -18,5 +18,14 @@
         android:id="@+id/homeFragment"
         android:name="com.example.shoppinglistefes.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_addPurchaseFragment"
+            app:destination="@id/addPurchaseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPurchaseFragment"
+        android:name="com.example.shoppinglistefes.AddPurchaseFragment"
+        android:label="fragment_add_purchase"
+        tools:layout="@layout/fragment_add_purchase" />
 </navigation>

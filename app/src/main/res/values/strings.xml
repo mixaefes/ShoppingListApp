@@ -2,4 +2,5 @@
     <string name="app_name">ShoppingListEfes</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello splash fragment</string>
+    <string name="add_new_purchase">add new purchase</string>
 </resources>
