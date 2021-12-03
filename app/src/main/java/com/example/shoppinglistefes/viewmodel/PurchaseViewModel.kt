@@ -22,6 +22,9 @@ class PurchaseViewModel(
     fun deletePurchase(purchase: Purchase) = viewModelScope.launch {
         repository.deletePurchase(purchase)
     }
+    fun updatePurchase(purchase: Purchase) = viewModelScope.launch {
+        repository.updatePurchase(purchase)
+    }
 }
 
 class PurchaseViewModelFactory(

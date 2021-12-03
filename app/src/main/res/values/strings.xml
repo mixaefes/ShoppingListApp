@@ -3,4 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello splash fragment</string>
     <string name="add_new_purchase">add new purchase</string>
+    <string name="type_price_description">Please type price</string>
+    <string name="addButtonBuyName">Buy</string>
+    <string name="addButtonAddName">Add</string>
 </resources>

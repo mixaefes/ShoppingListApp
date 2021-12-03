@@ -5,8 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Purchase(
-    @PrimaryKey(autoGenerate = true) var id: Int? = 0,
-    val name: String,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val name: String? = null,
     val data: Long? = null,
-    val price: Int? = null
+    val price: Int? = 0
 )

@@ -18,4 +18,10 @@ class PurchaseRepository(private val purchaseDao: Dao) {
     suspend fun deletePurchase(purchase: Purchase) {
         purchaseDao.delPurchase(purchase)
     }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun updatePurchase(purchase: Purchase) {
+        purchaseDao.updatePurchase(purchase)
+    }
 }

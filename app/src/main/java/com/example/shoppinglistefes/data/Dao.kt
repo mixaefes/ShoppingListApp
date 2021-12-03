@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -17,4 +18,7 @@ interface Dao {
 
     @Delete
     suspend fun delPurchase(purchase: Purchase)
+
+    @Update
+    suspend fun updatePurchase(purchase: Purchase)
 }
