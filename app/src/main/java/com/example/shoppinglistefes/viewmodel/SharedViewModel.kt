@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 import com.example.shoppinglistefes.data.Purchase
 
 class SharedViewModel : ViewModel() {
-    val selected = MutableLiveData<Purchase>()
-    fun select(purchase: Purchase) {
+    val selected = MutableLiveData<Purchase?>()
+    fun select(purchase: Purchase?) {
         selected.value = purchase
     }
 }

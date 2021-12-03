@@ -42,6 +42,7 @@ class HomeFragment : Fragment(),OnItemClickListener {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.recyclerId.layoutManager = LinearLayoutManager(context)
         binding.floatingActionButton.setOnClickListener {
+            sharedViewModel.select(null)
             it.findNavController().navigate(R.id.action_homeFragment_to_addPurchaseFragment)
         }
         shoppingAdapter = ShoppingListAdapter(this)

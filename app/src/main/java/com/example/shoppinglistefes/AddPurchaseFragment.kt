@@ -1,14 +1,17 @@
 package com.example.shoppinglistefes
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.shoppinglistefes.data.Purchase
 import com.example.shoppinglistefes.databinding.FragmentAddPurchaseBinding
 import com.example.shoppinglistefes.viewmodel.PurchaseViewModel
@@ -25,7 +28,6 @@ class AddPurchaseFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -42,8 +44,8 @@ class AddPurchaseFragment : Fragment() {
             priceId.isVisible = false
             buttonAdd.setText(getString(R.string.addButtonAddName))
         }
-        sharedViewModel.selected.observe(viewLifecycleOwner, Observer<Purchase> { purchase ->
-            purchase.name?.let {name ->
+        sharedViewModel.selected.observe(viewLifecycleOwner, Observer<Purchase?> { purchase ->
+            purchase?.name?.let { name ->
                 binding.apply {
                     editTextPurchase.setText(name)
                     editTextNumber.isVisible = true
@@ -53,11 +55,20 @@ class AddPurchaseFragment : Fragment() {
             }
         })
         binding.buttonAdd.setOnClickListener {
-            val purchase = Purchase(
-                name = binding.editTextPurchase.text.toString(),
-               // price = Integer.parseInt(binding.editTextNumber.text.toString())
-            )
-            viewModel.insertPurchase(purchase)
+            sharedViewModel.selected.observe(viewLifecycleOwner, Observer<Purchase?> { purchase ->
+                if (purchase != null) {
+                    purchase.name = binding.editTextPurchase.text.toString()
+                    purchase.price = Integer.parseInt(binding.editTextNumber.text.toString())
+                    viewModel.updatePurchase(purchase)
+                    findNavController().navigate(R.id.action_addPurchaseFragment_to_homeFragment)
+                } else {
+                    val purch = Purchase(
+                        name = binding.editTextPurchase.text.toString(),
+                    )
+                    viewModel.insertPurchase(purch)
+                    findNavController().navigate(R.id.action_addPurchaseFragment_to_homeFragment)
+                }
+            })
         }
         return binding.root
     }

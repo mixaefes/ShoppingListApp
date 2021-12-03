@@ -38,6 +38,7 @@
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="Price"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPurchase" />
 
@@ -50,6 +51,7 @@
         android:ems="10"
         android:hint="price"
         android:inputType="number"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/priceId" />
 
