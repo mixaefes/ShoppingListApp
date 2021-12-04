@@ -10,8 +10,11 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface Dao {
-    @Query("SELECT * FROM purchase")
+    @Query("SELECT * FROM purchase WHERE price == 0")
     fun getAll(): Flow<List<Purchase>>
+
+    @Query("SELECT * FROM purchase WHERE price > 0")
+    fun getAllWasted():Flow<List<Purchase>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPurchase(purchase: Purchase)

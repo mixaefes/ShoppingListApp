@@ -14,7 +14,7 @@ class ShoppingListAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingListVH {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ListItemBinding.inflate(inflater, parent, false)
-        return ShoppingListVH(binding,listener)
+        return ShoppingListVH(binding)
     }
 
     override fun onBindViewHolder(holder: ShoppingListVH, position: Int) {

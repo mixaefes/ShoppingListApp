@@ -55,8 +55,16 @@ class HomeFragment : Fragment(),OnItemClickListener {
             })
         }
         Log.i("HomeFragment", "my list: ${shoppingAdapter!!.currentList}")
+        binding.buttonListWasted.setOnClickListener {
+            it.findNavController().navigate(R.id.action_homeFragment_to_wastedFragment)
+        }
         return binding.root
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onItemClick(position: Int) {

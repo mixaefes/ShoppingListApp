@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_homeFragment_to_addPurchaseFragment"
             app:destination="@id/addPurchaseFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_wastedFragment"
+            app:destination="@id/wastedFragment" />
     </fragment>
     <fragment
         android:id="@+id/addPurchaseFragment"
@@ -32,4 +35,9 @@
             android:id="@+id/action_addPurchaseFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/wastedFragment"
+        android:name="com.example.shoppinglistefes.WastedFragment"
+        android:label="fragment_wasted"
+        tools:layout="@layout/fragment_wasted" />
 </navigation>

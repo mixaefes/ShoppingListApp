@@ -7,6 +7,8 @@ class PurchaseRepository(private val purchaseDao: Dao) {
 
     val allPurchases: Flow<List<Purchase>> = purchaseDao.getAll()
 
+    val allWastedPurchase : Flow<List<Purchase>> = purchaseDao.getAllWasted()
+
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun insertPurchase(purchase: Purchase) {

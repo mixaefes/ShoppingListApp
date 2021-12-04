@@ -14,6 +14,7 @@ class PurchaseViewModel(
     private val repository: PurchaseRepository
 ) : ViewModel() {
     val allPurchase: LiveData<List<Purchase>> = repository.allPurchases.asLiveData()
+    val allWastedPurchase: LiveData<List<Purchase>> = repository.allWastedPurchase.asLiveData()
 
     fun insertPurchase(purchase: Purchase) = viewModelScope.launch {
         repository.insertPurchase(purchase)

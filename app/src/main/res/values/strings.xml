@@ -6,4 +6,6 @@
     <string name="type_price_description">Please type price</string>
     <string name="addButtonBuyName">Buy</string>
     <string name="addButtonAddName">Add</string>
+    <string name="shekel">₪</string>
+    <string name="button_my_purchases">My purchases</string>
 </resources>
