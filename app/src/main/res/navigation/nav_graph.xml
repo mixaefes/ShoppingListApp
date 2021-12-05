@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_homeFragment_to_wastedFragment"
             app:destination="@id/wastedFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addPurchaseFragment"
@@ -40,4 +43,8 @@
         android:name="com.example.shoppinglistefes.WastedFragment"
         android:label="fragment_wasted"
         tools:layout="@layout/fragment_wasted" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.shoppinglistefes.settings.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>

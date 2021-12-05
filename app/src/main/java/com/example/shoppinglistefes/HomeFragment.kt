@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -22,16 +25,17 @@ import com.example.shoppinglistefes.viewmodel.PurchaseViewModelFactory
 import com.example.shoppinglistefes.viewmodel.SharedViewModel
 import kotlinx.coroutines.launch
 
-class HomeFragment : Fragment(),OnItemClickListener {
+class HomeFragment : Fragment(), OnItemClickListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val myViewModel: PurchaseViewModel by viewModels {
         PurchaseViewModelFactory((activity?.application as ShoppingApplication).repository)
     }
-    private val sharedViewModel : SharedViewModel by activityViewModels()
+    private val sharedViewModel: SharedViewModel by activityViewModels()
     private var shoppingAdapter: ShoppingListAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -62,13 +66,31 @@ class HomeFragment : Fragment(),OnItemClickListener {
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.settingsId -> {
+                findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
     override fun onItemClick(position: Int) {
-        Toast.makeText(this.context, "clicl click click ${shoppingAdapter?.currentList?.get(position)}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            this.context,
+            "clicl click click ${shoppingAdapter?.currentList?.get(position)}",
+            Toast.LENGTH_SHORT
+        ).show()
         shoppingAdapter?.currentList?.get(position)?.let { sharedViewModel.select(it) }
         findNavController().navigate(R.id.action_homeFragment_to_addPurchaseFragment)
     }

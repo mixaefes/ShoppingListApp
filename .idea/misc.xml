@@ -9,6 +9,8 @@
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_wasted.xml" value="0.12259371833839919" />
         <entry key="app/src/main/res/layout/list_item.xml" value="0.5" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.17777777777777778" />
+        <entry key="app/src/main/res/xml/settings.xml" value="0.25" />
       </map>
     </option>
   </component>
