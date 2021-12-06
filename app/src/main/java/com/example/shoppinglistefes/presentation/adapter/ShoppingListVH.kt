@@ -1,9 +1,8 @@
-package com.example.shoppinglistefes.adapter
+package com.example.shoppinglistefes.presentation.adapter
 
 import android.util.Log
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.example.shoppinglistefes.data.Purchase
+import com.example.shoppinglistefes.domain.Purchase
 import com.example.shoppinglistefes.databinding.ListItemBinding
 
 class ShoppingListVH(

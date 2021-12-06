@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.shoppinglistefes.SplashFragment"
+        android:name="com.example.shoppinglistefes.presentation.ui.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.shoppinglistefes.HomeFragment"
+        android:name="com.example.shoppinglistefes.presentation.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/addPurchaseFragment"
-        android:name="com.example.shoppinglistefes.AddPurchaseFragment"
+        android:name="com.example.shoppinglistefes.presentation.ui.AddPurchaseFragment"
         android:label="fragment_add_purchase"
         tools:layout="@layout/fragment_add_purchase" >
         <action
@@ -40,11 +40,11 @@
     </fragment>
     <fragment
         android:id="@+id/wastedFragment"
-        android:name="com.example.shoppinglistefes.WastedFragment"
+        android:name="com.example.shoppinglistefes.presentation.ui.WastedFragment"
         android:label="fragment_wasted"
         tools:layout="@layout/fragment_wasted" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.shoppinglistefes.settings.SettingsFragment"
+        android:name="com.example.shoppinglistefes.presentation.ui.settings.SettingsFragment"
         android:label="SettingsFragment" />
 </navigation>

@@ -1,12 +1,12 @@
-package com.example.shoppinglistefes.viewmodel
+package com.example.shoppinglistefes.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.shoppinglistefes.data.Purchase
-import com.example.shoppinglistefes.data.PurchaseRepository
+import com.example.shoppinglistefes.domain.Purchase
+import com.example.shoppinglistefes.domain.PurchaseRepository
 import java.lang.IllegalArgumentException
 import kotlinx.coroutines.launch
 

@@ -1,4 +1,4 @@
-package com.example.shoppinglistefes
+package com.example.shoppinglistefes.presentation.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,11 +9,12 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.shoppinglistefes.adapter.OnItemClickListener
-import com.example.shoppinglistefes.adapter.ShoppingListAdapter
+import com.example.shoppinglistefes.ShoppingApplication
+import com.example.shoppinglistefes.presentation.adapter.OnItemClickListener
+import com.example.shoppinglistefes.presentation.adapter.ShoppingListAdapter
 import com.example.shoppinglistefes.databinding.FragmentWastedBinding
-import com.example.shoppinglistefes.viewmodel.PurchaseViewModel
-import com.example.shoppinglistefes.viewmodel.PurchaseViewModelFactory
+import com.example.shoppinglistefes.presentation.viewmodel.PurchaseViewModel
+import com.example.shoppinglistefes.presentation.viewmodel.PurchaseViewModelFactory
 
 class WastedFragment : Fragment(), OnItemClickListener {
     private var _binding: FragmentWastedBinding? = null

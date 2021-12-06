@@ -1,11 +1,10 @@
-package com.example.shoppinglistefes.adapter
+package com.example.shoppinglistefes.presentation.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.example.shoppinglistefes.data.Purchase
+import com.example.shoppinglistefes.domain.Purchase
 import com.example.shoppinglistefes.databinding.ListItemBinding
 
 class ShoppingListAdapter(

@@ -1,6 +1,8 @@
-package com.example.shoppinglistefes.data
+package com.example.shoppinglistefes.domain
 
 import androidx.annotation.WorkerThread
+import com.example.shoppinglistefes.domain.Dao
+import com.example.shoppinglistefes.domain.Purchase
 import kotlinx.coroutines.flow.Flow
 
 class PurchaseRepository(private val purchaseDao: Dao) {

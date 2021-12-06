@@ -1,4 +1,4 @@
-package com.example.shoppinglistefes
+package com.example.shoppinglistefes.presentation.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -17,12 +17,14 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.shoppinglistefes.adapter.OnItemClickListener
-import com.example.shoppinglistefes.adapter.ShoppingListAdapter
+import com.example.shoppinglistefes.R
+import com.example.shoppinglistefes.ShoppingApplication
+import com.example.shoppinglistefes.presentation.adapter.OnItemClickListener
+import com.example.shoppinglistefes.presentation.adapter.ShoppingListAdapter
 import com.example.shoppinglistefes.databinding.FragmentHomeBinding
-import com.example.shoppinglistefes.viewmodel.PurchaseViewModel
-import com.example.shoppinglistefes.viewmodel.PurchaseViewModelFactory
-import com.example.shoppinglistefes.viewmodel.SharedViewModel
+import com.example.shoppinglistefes.presentation.viewmodel.PurchaseViewModel
+import com.example.shoppinglistefes.presentation.viewmodel.PurchaseViewModelFactory
+import com.example.shoppinglistefes.presentation.viewmodel.SharedViewModel
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment(), OnItemClickListener {

@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceManager
 import com.example.shoppinglistefes.data.PurchaseDatabase
-import com.example.shoppinglistefes.data.PurchaseRepository
+import com.example.shoppinglistefes.domain.PurchaseRepository
 
 class ShoppingApplication : Application() {
     val database by lazy { PurchaseDatabase.getDatabase(this) }

@@ -1,4 +1,4 @@
-package com.example.shoppinglistefes.data
+package com.example.shoppinglistefes.domain
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
