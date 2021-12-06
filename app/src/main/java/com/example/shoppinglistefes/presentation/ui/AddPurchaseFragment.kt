@@ -23,9 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class AddPurchaseFragment : Fragment() {
     private var _binding: FragmentAddPurchaseBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: PurchaseViewModel by viewModels {
-        PurchaseViewModelFactory((activity?.application as ShoppingApplication).repository)
-    }
+    private val viewModel : PurchaseViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {

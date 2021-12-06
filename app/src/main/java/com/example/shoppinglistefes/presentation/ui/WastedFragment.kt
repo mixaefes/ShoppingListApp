@@ -21,9 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class WastedFragment : Fragment(), OnItemClickListener {
     private var _binding: FragmentWastedBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: PurchaseViewModel by viewModels {
-        PurchaseViewModelFactory((activity?.application as ShoppingApplication).repository)
-    }
+    private val viewModel: PurchaseViewModel by viewModels()
     private var shopAdapter: ShoppingListAdapter? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

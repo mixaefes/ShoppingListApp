@@ -32,9 +32,7 @@ import kotlinx.coroutines.launch
 class HomeFragment : Fragment(), OnItemClickListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val myViewModel: PurchaseViewModel by viewModels {
-        PurchaseViewModelFactory((activity?.application as ShoppingApplication).repository)
-    }
+    private val myViewModel : PurchaseViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
     private var shoppingAdapter: ShoppingListAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
