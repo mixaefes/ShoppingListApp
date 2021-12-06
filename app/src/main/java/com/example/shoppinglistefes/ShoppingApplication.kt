@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceManager
 import com.example.shoppinglistefes.data.PurchaseDatabase
 import com.example.shoppinglistefes.domain.PurchaseRepository
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class ShoppingApplication : Application() {
     val database by lazy { PurchaseDatabase.getDatabase(this) }
     val repository by lazy { PurchaseRepository(database.purchaseDao()) }

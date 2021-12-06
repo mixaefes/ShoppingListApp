@@ -17,7 +17,9 @@ import com.example.shoppinglistefes.databinding.FragmentAddPurchaseBinding
 import com.example.shoppinglistefes.presentation.viewmodel.PurchaseViewModel
 import com.example.shoppinglistefes.presentation.viewmodel.PurchaseViewModelFactory
 import com.example.shoppinglistefes.presentation.viewmodel.SharedViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AddPurchaseFragment : Fragment() {
     private var _binding: FragmentAddPurchaseBinding? = null
     private val binding get() = _binding!!

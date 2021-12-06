@@ -15,7 +15,9 @@ import com.example.shoppinglistefes.presentation.adapter.ShoppingListAdapter
 import com.example.shoppinglistefes.databinding.FragmentWastedBinding
 import com.example.shoppinglistefes.presentation.viewmodel.PurchaseViewModel
 import com.example.shoppinglistefes.presentation.viewmodel.PurchaseViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class WastedFragment : Fragment(), OnItemClickListener {
     private var _binding: FragmentWastedBinding? = null
     private val binding get() = _binding!!

@@ -7,10 +7,13 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.shoppinglistefes.domain.Purchase
 import com.example.shoppinglistefes.domain.PurchaseRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import java.lang.IllegalArgumentException
+import javax.inject.Inject
 import kotlinx.coroutines.launch
 
-class PurchaseViewModel(
+@HiltViewModel
+class PurchaseViewModel @Inject constructor(
     private val repository: PurchaseRepository
 ) : ViewModel() {
     val allPurchase: LiveData<List<Purchase>> = repository.allPurchases.asLiveData()

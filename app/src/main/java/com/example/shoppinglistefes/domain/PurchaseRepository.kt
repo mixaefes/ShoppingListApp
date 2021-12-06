@@ -3,9 +3,10 @@ package com.example.shoppinglistefes.domain
 import androidx.annotation.WorkerThread
 import com.example.shoppinglistefes.domain.Dao
 import com.example.shoppinglistefes.domain.Purchase
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 
-class PurchaseRepository(private val purchaseDao: Dao) {
+class PurchaseRepository @Inject constructor(private val purchaseDao: Dao) {
 
     val allPurchases: Flow<List<Purchase>> = purchaseDao.getAll()
 

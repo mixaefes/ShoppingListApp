@@ -25,8 +25,10 @@ import com.example.shoppinglistefes.databinding.FragmentHomeBinding
 import com.example.shoppinglistefes.presentation.viewmodel.PurchaseViewModel
 import com.example.shoppinglistefes.presentation.viewmodel.PurchaseViewModelFactory
 import com.example.shoppinglistefes.presentation.viewmodel.SharedViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class HomeFragment : Fragment(), OnItemClickListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
