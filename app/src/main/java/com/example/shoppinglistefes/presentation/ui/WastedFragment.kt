@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.coroutineScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shoppinglistefes.ShoppingApplication
 import com.example.shoppinglistefes.presentation.adapter.OnItemClickListener
@@ -16,6 +17,8 @@ import com.example.shoppinglistefes.databinding.FragmentWastedBinding
 import com.example.shoppinglistefes.presentation.viewmodel.PurchaseViewModel
 import com.example.shoppinglistefes.presentation.viewmodel.PurchaseViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class WastedFragment : Fragment(), OnItemClickListener {
@@ -37,12 +40,13 @@ class WastedFragment : Fragment(), OnItemClickListener {
             layoutManager = LinearLayoutManager(context)
             adapter = shopAdapter
         }
-
-        viewModel.allWastedPurchase.observe(
-            viewLifecycleOwner,
-            Observer {
-                shopAdapter?.submitList(it)
-            })
+        lifecycle.coroutineScope.launch {
+            viewModel.allWastedPurchase.collect() { list ->
+                shopAdapter?.let {
+                    it.submitList(list)
+                }
+            }
+        }
         return binding.root
     }
 

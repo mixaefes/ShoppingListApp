@@ -10,14 +10,15 @@ import com.example.shoppinglistefes.domain.PurchaseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.lang.IllegalArgumentException
 import javax.inject.Inject
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 @HiltViewModel
 class PurchaseViewModel @Inject constructor(
     private val repository: PurchaseRepository
 ) : ViewModel() {
-    val allPurchase: LiveData<List<Purchase>> = repository.allPurchases.asLiveData()
-    val allWastedPurchase: LiveData<List<Purchase>> = repository.allWastedPurchase.asLiveData()
+    val allPurchase: Flow<List<Purchase>> = repository.allPurchases
+    val allWastedPurchase: Flow<List<Purchase>> = repository.allWastedPurchase
 
     fun insertPurchase(purchase: Purchase) = viewModelScope.launch {
         repository.insertPurchase(purchase)
@@ -26,6 +27,7 @@ class PurchaseViewModel @Inject constructor(
     fun deletePurchase(purchase: Purchase) = viewModelScope.launch {
         repository.deletePurchase(purchase)
     }
+
     fun updatePurchase(purchase: Purchase) = viewModelScope.launch {
         repository.updatePurchase(purchase)
     }

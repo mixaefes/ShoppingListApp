@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -26,13 +27,14 @@ import com.example.shoppinglistefes.presentation.viewmodel.PurchaseViewModel
 import com.example.shoppinglistefes.presentation.viewmodel.PurchaseViewModelFactory
 import com.example.shoppinglistefes.presentation.viewmodel.SharedViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(), OnItemClickListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val myViewModel : PurchaseViewModel by viewModels()
+    private val myViewModel: PurchaseViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
     private var shoppingAdapter: ShoppingListAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,12 +55,12 @@ class HomeFragment : Fragment(), OnItemClickListener {
         }
         shoppingAdapter = ShoppingListAdapter(this)
         binding.recyclerId.adapter = shoppingAdapter
-        lifecycleScope.launch {
-            myViewModel.allPurchase.observe(viewLifecycleOwner, Observer { list ->
+        lifecycle.coroutineScope.launch {
+            myViewModel.allPurchase.collect() { list ->
                 shoppingAdapter?.let {
                     it.submitList(list)
                 }
-            })
+            }
         }
         Log.i("HomeFragment", "my list: ${shoppingAdapter!!.currentList}")
         binding.buttonListWasted.setOnClickListener {
