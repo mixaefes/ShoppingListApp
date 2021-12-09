@@ -9,4 +9,5 @@
     <string name="shekel">₪</string>
     <string name="button_my_purchases">My purchases</string>
     <string name="settings">settings</string>
+    <string name="total_spent">Total spent:</string>
 </resources>

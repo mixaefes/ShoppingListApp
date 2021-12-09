@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
-        android:text="TextView"
+        android:text="@string/add_new_purchase"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Add new purchase" />
@@ -36,7 +36,6 @@
         android:layout_height="24dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:gravity="center"
         android:text="Price"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"

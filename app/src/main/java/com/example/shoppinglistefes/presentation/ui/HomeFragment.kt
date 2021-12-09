@@ -90,11 +90,6 @@ class HomeFragment : Fragment(), OnItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-        Toast.makeText(
-            this.context,
-            "clicl click click ${shoppingAdapter?.currentList?.get(position)}",
-            Toast.LENGTH_SHORT
-        ).show()
         shoppingAdapter?.currentList?.get(position)?.let { sharedViewModel.select(it) }
         findNavController().navigate(R.id.action_homeFragment_to_addPurchaseFragment)
     }

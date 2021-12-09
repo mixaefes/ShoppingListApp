@@ -42,8 +42,9 @@ class WastedFragment : Fragment(), OnItemClickListener {
         }
         lifecycle.coroutineScope.launch {
             viewModel.allWastedPurchase.collect() { list ->
-                shopAdapter?.let {
-                    it.submitList(list)
+                shopAdapter?.let { adapter ->
+                    adapter.submitList(list)
+                    binding.priceWastedId.text = "${list.sumOf { it.price!! }} ₪"
                 }
             }
         }
