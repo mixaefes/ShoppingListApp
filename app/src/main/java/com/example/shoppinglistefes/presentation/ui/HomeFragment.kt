@@ -2,29 +2,26 @@ package com.example.shoppinglistefes.presentation.ui
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.coroutineScope
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shoppinglistefes.R
-import com.example.shoppinglistefes.ShoppingApplication
-import com.example.shoppinglistefes.presentation.adapter.OnItemClickListener
-import com.example.shoppinglistefes.presentation.adapter.ShoppingListAdapter
 import com.example.shoppinglistefes.databinding.FragmentHomeBinding
+import com.example.shoppinglistefes.presentation.adapter.OnItemClickListener
+import com.example.shoppinglistefes.presentation.adapter.ShoppingItemTouchHelperCallback
+import com.example.shoppinglistefes.presentation.adapter.ShoppingListAdapter
 import com.example.shoppinglistefes.presentation.viewmodel.PurchaseViewModel
-import com.example.shoppinglistefes.presentation.viewmodel.PurchaseViewModelFactory
 import com.example.shoppinglistefes.presentation.viewmodel.SharedViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -37,6 +34,7 @@ class HomeFragment : Fragment(), OnItemClickListener {
     private val myViewModel: PurchaseViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
     private var shoppingAdapter: ShoppingListAdapter? = null
+    private var itemTouchHelper : ShoppingItemTouchHelperCallback? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -46,7 +44,7 @@ class HomeFragment : Fragment(), OnItemClickListener {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.recyclerId.layoutManager = LinearLayoutManager(context)
         binding.floatingActionButton.setOnClickListener {
@@ -54,12 +52,14 @@ class HomeFragment : Fragment(), OnItemClickListener {
             it.findNavController().navigate(R.id.action_homeFragment_to_addPurchaseFragment)
         }
         shoppingAdapter = ShoppingListAdapter(this)
+        itemTouchHelper = ShoppingItemTouchHelperCallback(adapter = shoppingAdapter!!)
+        val toushHelper = ItemTouchHelper(itemTouchHelper!!)
         binding.recyclerId.adapter = shoppingAdapter
+        toushHelper.attachToRecyclerView(binding.recyclerId)
         lifecycle.coroutineScope.launch {
             myViewModel.allPurchase.collect() { list ->
-                shoppingAdapter?.let {
-                    it.submitList(list)
-                }
+                shoppingAdapter?.submitList(list)
+
             }
         }
         Log.i("HomeFragment", "my list: ${shoppingAdapter!!.currentList}")
