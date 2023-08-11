@@ -15,7 +15,7 @@ class SettingsFragment : PreferenceFragmentCompat(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addPreferencesFromResource(R.xml.settings)
-        preferenceScreen.sharedPreferences.registerOnSharedPreferenceChangeListener(this)
+        preferenceScreen.sharedPreferences?.registerOnSharedPreferenceChangeListener(this)
     }
 
     override fun onSharedPreferenceChanged(p0: SharedPreferences, p1: String?) {
@@ -28,7 +28,7 @@ class SettingsFragment : PreferenceFragmentCompat(),
 
     override fun onDestroy() {
         super.onDestroy()
-        preferenceScreen.sharedPreferences.unregisterOnSharedPreferenceChangeListener(this)
+        preferenceScreen?.sharedPreferences?.unregisterOnSharedPreferenceChangeListener(this)
 
     }
 }
